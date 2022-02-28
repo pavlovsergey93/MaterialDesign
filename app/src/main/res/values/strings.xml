@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MaterialDesign</string>
+    <string name="photo_of_day">Фото дня</string>
+    <string name="search_wiki">Найти в Wikipedia</string>
+    <string name="wiki_helper">Поищите термин в Wikipedia</string>
+    <string name="favourite">Favourite</string>
+    <string name="setting">Setting</string>
+    <string name="search">Search</string>
+    <string name="server_request_error">ОШИБКА_СЕРВЕРА</string>
+    <string name="project_error">ОШИБКА_ПРИЛОЖЕНИЯ</string>
+    <string name="corrupted_data">ПОТЕРЯ_ДАННЫХ</string>
+    <string name="reload">RELOAD</string>
+    <string name="video_info">Не поддерживает видео материал</string>
 </resources>
