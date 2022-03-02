@@ -10,6 +10,7 @@ const val BASE_URI = "https://api.nasa.gov/"
 const val WIKI_URI = "https://www.en.wikipedia.org/wiki/"
 
 const val TAG_BS = "BottomSheetDialog"
+const val TAG_MA = "PictureOfTheDayActivity"
 
 const val SERVER_REQUEST_ERROR = R.string.server_request_error
 const val PROJECT_ERROR = R.string.project_error

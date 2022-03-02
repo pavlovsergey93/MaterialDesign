@@ -6,21 +6,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import coil.load
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentPictureOfTheDayBinding
 import com.gmail.pavlovsv93.materialdesign.utils.*
-import com.gmail.pavlovsv93.materialdesign.view.bottomsheet.BottomNavigationFragment
-import com.gmail.pavlovsv93.materialdesign.view.menu.navigation.ChipsFragment
 import com.gmail.pavlovsv93.materialdesign.viewmodel.AppState
 import com.gmail.pavlovsv93.materialdesign.viewmodel.PictureViewModel
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class PictureOfTheDayFragment : Fragment() {
@@ -29,7 +23,7 @@ class PictureOfTheDayFragment : Fragment() {
         fun newInstance() = PictureOfTheDayFragment()
     }
 
-    private var isMain: Boolean = true
+//    private var isMain: Boolean = true
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding: FragmentPictureOfTheDayBinding get() = _binding!!
@@ -57,8 +51,8 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setHasOptionsMenu(true)
-        (requireActivity() as PictureOfTheDayActivity).setSupportActionBar(binding.fBottomAppBar)
+//        setHasOptionsMenu(true)
+//        (requireActivity() as PictureOfTheDayActivity).setSupportActionBar(binding.fBottomAppBar)
 
         initViewModel()
 
@@ -67,46 +61,47 @@ class PictureOfTheDayFragment : Fragment() {
                 data = Uri.parse(WIKI_URI + binding.fpicturesTextInputEditText.text.toString())
             })
         }
+
         initBottomSheet()
 
-        binding.fFab.setOnClickListener {
-            if (isMain) {
-                binding.fBottomAppBar.navigationIcon = null
-                binding.fBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fFab.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_arrow_back_24))
-                binding.fBottomAppBar.replaceMenu(R.menu.menu_other_bottom_app_bar)
-            } else {
-                binding.fBottomAppBar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_round_dehaze_24)
-                binding.fBottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
-                binding.fFab.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_add_24 ))
-                binding.fBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-            }
-            isMain = !isMain
-        }
+//        binding.fFab.setOnClickListener {
+//            if (isMain) {
+//                binding.fBottomAppBar.navigationIcon = null
+//                binding.fBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+//                binding.fFab.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_arrow_back_24))
+//                binding.fBottomAppBar.replaceMenu(R.menu.menu_other_bottom_app_bar)
+//            } else {
+//                binding.fBottomAppBar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_round_dehaze_24)
+//                binding.fBottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
+//                binding.fFab.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_add_24 ))
+//                binding.fBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+//            }
+//            isMain = !isMain
+//        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_app_bar, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_bab_setting -> {
-                Log.d(TAG_BS, "menu Setting")
-                showFragment(ChipsFragment.newInstance(), BACKSTACK)
-            }
-            R.id.menu_bab_fav -> {
-                Log.d(TAG_BS, "menu Favourite")
-            }
-            android.R.id.home -> {
-                BottomNavigationFragment().show(requireActivity().supportFragmentManager, "")
-                Log.d(TAG_BS, "burger")
-            }
-
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//        inflater.inflate(R.menu.menu_bottom_app_bar, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.menu_bab_setting -> {
+//                Log.d(TAG_BS, "menu Setting")
+//                showFragment(ChipsFragment.newInstance(), BACKSTACK)
+//            }
+//            R.id.menu_bab_fav -> {
+//                Log.d(TAG_BS, "menu Favourite")
+//            }
+//            android.R.id.home -> {
+//                BottomNavigationFragment().show(requireActivity().supportFragmentManager, "")
+//                Log.d(TAG_BS, "burger")
+//            }
+//
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
     private fun showFragment(fragment: Fragment, backstack: Boolean) {
         val sfm = parentFragmentManager.beginTransaction()
@@ -121,7 +116,7 @@ class PictureOfTheDayFragment : Fragment() {
     private fun initBottomSheet() {
         bottomSheetBehavior =
             BottomSheetBehavior.from(binding.fPicturesBottomSheet.fdialogContainer)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_DRAGGING
 
         // todo обработка состояния открытия BottomSheet
         bottomSheetBehavior.addBottomSheetCallback(object :
