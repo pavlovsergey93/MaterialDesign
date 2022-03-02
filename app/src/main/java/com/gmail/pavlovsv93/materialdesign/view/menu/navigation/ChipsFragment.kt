@@ -124,16 +124,6 @@ class ChipsFragment : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun getDate(daysAgo: Int): String {
-        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        var date = LocalDate.now()
-        var otherDate = LocalDate.parse(date.format(formatter), formatter)
-            .minusDays(daysAgo.toLong())
-        return otherDate.toString()
-
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

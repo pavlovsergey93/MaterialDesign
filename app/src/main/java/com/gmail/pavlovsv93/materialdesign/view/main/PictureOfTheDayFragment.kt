@@ -2,9 +2,11 @@ package com.gmail.pavlovsv93.materialdesign.view.main
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isVisible
@@ -48,6 +50,7 @@ class PictureOfTheDayFragment : Fragment() {
         _binding = null
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,6 +63,20 @@ class PictureOfTheDayFragment : Fragment() {
         }
 
         initBottomSheet()
+
+        binding.fPicturesChipGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.chips_3 -> {
+                    viewModel.sendServerRequestToDate(date = getDate(DAY_BEFORE_YESTERDAY))
+                }
+                R.id.chips_2 -> {
+                    viewModel.sendServerRequestToDate(date = getDate(YESTERDAY))
+                }
+                R.id.chips_1 -> {
+                    viewModel.sendServerRequestToDate(date = getDate(TODAY))
+                }
+            }
+        }
     }
 
     private fun showFragment(fragment: Fragment, backstack: Boolean) {
