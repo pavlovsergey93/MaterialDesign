@@ -22,12 +22,6 @@ class PictureViewModel(
     fun getLiveData(): LiveData<AppState> = liveData
 
     // послать серверный запрос
-    fun sendServerRequest(progress: Int? = null) {
-        liveData.postValue(AppState.OnLoading(progress))
-        retrofit.getRetrofitImpl().getPictureOfTheDay(NASA_API_KEY)
-            .enqueue(callBack)
-    }
-
     fun sendServerRequestToDate(progress: Int? = null, date: String) {
         liveData.postValue(AppState.OnLoading(progress))
         retrofit.getRetrofitImpl().getPictureByDate(NASA_API_KEY, (date))

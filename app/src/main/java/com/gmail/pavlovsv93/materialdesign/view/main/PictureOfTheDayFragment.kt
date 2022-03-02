@@ -129,13 +129,15 @@ class PictureOfTheDayFragment : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun initViewModel() {
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer<AppState> { state ->
             renderData(state)
         })
-        viewModel.sendServerRequest(R.id.fpictures_progress)
+        viewModel.sendServerRequestToDate(R.id.fpictures_progress, getDate(TODAY))
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun renderData(state: AppState) {
         when (state) {
             is AppState.OnError -> {
@@ -145,7 +147,7 @@ class PictureOfTheDayFragment : Fragment() {
                     state.error.toString(),
                     R.string.reload.toString(),
                     {
-                        viewModel.sendServerRequest(R.id.fpictures_progress)
+                        viewModel.sendServerRequestToDate(R.id.fpictures_progress, getDate(TODAY))
                     })
             }
             is AppState.OnLoading -> {

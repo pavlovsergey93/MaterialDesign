@@ -84,6 +84,7 @@ class ChipsFragment : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun renderData(state: AppState) {
         when (state) {
             is AppState.OnError -> {
@@ -94,7 +95,7 @@ class ChipsFragment : Fragment() {
                     state.error.toString(),
                     R.string.reload.toString(),
                     {
-                        viewModel.sendServerRequest(R.id.f_chips_progress)
+                        viewModel.sendServerRequestToDate(R.id.f_chips_progress, getDate(TODAY))
                     })
             }
             is AppState.OnLoading -> {
