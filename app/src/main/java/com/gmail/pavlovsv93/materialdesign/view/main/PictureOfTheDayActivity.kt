@@ -77,7 +77,8 @@ class PictureOfTheDayActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_bottom_app_bar, menu)
-        return super.onCreateOptionsMenu(menu)
+        super.onCreateOptionsMenu(menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

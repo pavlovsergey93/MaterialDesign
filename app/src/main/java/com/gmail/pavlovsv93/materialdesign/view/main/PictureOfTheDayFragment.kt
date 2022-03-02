@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import coil.load
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentPictureOfTheDayBinding
 import com.gmail.pavlovsv93.materialdesign.utils.*
@@ -22,8 +24,6 @@ class PictureOfTheDayFragment : Fragment() {
     companion object {
         fun newInstance() = PictureOfTheDayFragment()
     }
-
-//    private var isMain: Boolean = true
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding: FragmentPictureOfTheDayBinding get() = _binding!!
@@ -51,9 +51,6 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        setHasOptionsMenu(true)
-//        (requireActivity() as PictureOfTheDayActivity).setSupportActionBar(binding.fBottomAppBar)
-
         initViewModel()
 
         binding.fpicturesTextInputLayout.setEndIconOnClickListener {
@@ -63,45 +60,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
 
         initBottomSheet()
-
-//        binding.fFab.setOnClickListener {
-//            if (isMain) {
-//                binding.fBottomAppBar.navigationIcon = null
-//                binding.fBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-//                binding.fFab.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_arrow_back_24))
-//                binding.fBottomAppBar.replaceMenu(R.menu.menu_other_bottom_app_bar)
-//            } else {
-//                binding.fBottomAppBar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_round_dehaze_24)
-//                binding.fBottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
-//                binding.fFab.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_baseline_add_24 ))
-//                binding.fBottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-//            }
-//            isMain = !isMain
-//        }
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.menu_bottom_app_bar, menu)
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.menu_bab_setting -> {
-//                Log.d(TAG_BS, "menu Setting")
-//                showFragment(ChipsFragment.newInstance(), BACKSTACK)
-//            }
-//            R.id.menu_bab_fav -> {
-//                Log.d(TAG_BS, "menu Favourite")
-//            }
-//            android.R.id.home -> {
-//                BottomNavigationFragment().show(requireActivity().supportFragmentManager, "")
-//                Log.d(TAG_BS, "burger")
-//            }
-//
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 
     private fun showFragment(fragment: Fragment, backstack: Boolean) {
         val sfm = parentFragmentManager.beginTransaction()
@@ -189,6 +148,7 @@ class PictureOfTheDayFragment : Fragment() {
                     binding.fpicturesImageview.setImageDrawable(R.drawable.ic_outline_image_24.toDrawable())
                     binding.fpicturesProgress.showSnackBarNoAction(R.string.video_info.toString())
                 }
+
                 with(binding.fPicturesBottomSheet) {
                     fBottomSheetTitle.text = state.responseData.title
                     fBottomSheetDescription.text = state.responseData.explanation

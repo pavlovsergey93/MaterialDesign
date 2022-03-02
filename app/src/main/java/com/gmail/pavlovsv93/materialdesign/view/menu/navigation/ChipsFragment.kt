@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.drawable.toDrawable
@@ -20,7 +19,7 @@ import com.gmail.pavlovsv93.materialdesign.utils.*
 import com.gmail.pavlovsv93.materialdesign.viewmodel.AppState
 import com.gmail.pavlovsv93.materialdesign.viewmodel.PictureViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.chip.Chip
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -52,24 +51,27 @@ class ChipsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initViewModel()
-
         initBottomSheet()
 
-        binding.fChipGroup.setOnCheckedChangeListener { group, checkedId ->
+        initViewModel()
+
+        if (savedInstanceState == null) {
+            viewModel.sendServerRequestToDate(date = getDate(TODAY))
+        }
+
+        binding.fChipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                CHIP_1 -> {
+                CHIP_3 -> {
                     viewModel.sendServerRequestToDate(date = getDate(DAY_BEFORE_YESTERDAY))
                 }
                 CHIP_2 -> {
                     viewModel.sendServerRequestToDate(date = getDate(YESTERDAY))
                 }
-                CHIP_3 -> {
+                CHIP_1 -> {
                     viewModel.sendServerRequestToDate(date = getDate(TODAY))
                 }
             }
         }
-        viewModel.sendServerRequest(R.id.f_chips_progress)
     }
 
     private fun initBottomSheet() {
@@ -83,7 +85,7 @@ class ChipsFragment : Fragment() {
     }
 
     private fun renderData(state: AppState) {
-        when (state){
+        when (state) {
             is AppState.OnError -> {
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
                 binding.fChipsImageView.isVisible = false
@@ -115,7 +117,8 @@ class ChipsFragment : Fragment() {
                     binding.fChipGroup.showSnackBarNoAction(R.string.video_info.toString())
                 }
                 binding.fChipsBottomSheet.fBottomSheetTitle.text = state.responseData.title
-                binding.fChipsBottomSheet.fBottomSheetDescription.text = state.responseData.explanation
+                binding.fChipsBottomSheet.fBottomSheetDescription.text =
+                    state.responseData.explanation
             }
         }
 

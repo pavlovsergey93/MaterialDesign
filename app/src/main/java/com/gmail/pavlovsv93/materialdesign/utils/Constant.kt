@@ -19,9 +19,9 @@ const val CORRUPTED_DATA = R.string.corrupted_data
 const val BACKSTACK = true
 const val NO_BACKSTACK = false
 
-const val CHIP_1 = 1
-const val CHIP_2 = 2
-const val CHIP_3 = 3
+const val CHIP_1 = R.id.chip_1
+const val CHIP_2 = R.id.chip_2
+const val CHIP_3 = R.id.chip_3
 
 const val TODAY = 0
 const val YESTERDAY = 1
