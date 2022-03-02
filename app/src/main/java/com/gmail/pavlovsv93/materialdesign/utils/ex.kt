@@ -17,6 +17,7 @@ fun View.showSnackBarAction(
             .setAction(actionText, action)
             .show()
 }
+// Показать SnackBar без кнопки действия
 fun View.showSnackBarNoAction(
     title: String,
     lenght: Int = Snackbar.LENGTH_INDEFINITE

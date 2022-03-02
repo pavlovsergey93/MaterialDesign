@@ -3,7 +3,7 @@ package com.gmail.pavlovsv93.materialdesign.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.gmail.pavlovsv93.materialdesign.RemoteRepositoryRetrofit
+import com.gmail.pavlovsv93.materialdesign.repository.RemoteRepositoryRetrofit
 import com.gmail.pavlovsv93.materialdesign.model.DataResponseNasaDTO
 import com.gmail.pavlovsv93.materialdesign.utils.CORRUPTED_DATA
 import com.gmail.pavlovsv93.materialdesign.utils.NASA_API_KEY
@@ -12,7 +12,6 @@ import com.gmail.pavlovsv93.materialdesign.utils.SERVER_REQUEST_ERROR
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class PictureViewModel(
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),
@@ -20,23 +19,30 @@ class PictureViewModel(
 ) : ViewModel() {
 
     // получение liveData
-    fun getLiveData():LiveData<AppState> = liveData
+    fun getLiveData(): LiveData<AppState> = liveData
 
     // послать серверный запрос
-    fun sendServerRequest(progress: Int? = null){
+    fun sendServerRequest(progress: Int? = null) {
         liveData.postValue(AppState.OnLoading(progress))
         retrofit.getRetrofitImpl().getPictureOfTheDay(NASA_API_KEY)
             .enqueue(callBack)
     }
 
-    private val callBack = object : Callback<DataResponseNasaDTO>{
+    fun sendServerRequestToDate(progress: Int? = null, date: String) {
+        liveData.postValue(AppState.OnLoading(progress))
+        retrofit.getRetrofitImpl().getPictureByDate(NASA_API_KEY, (date))
+            .enqueue(callBack)
+    }
+
+
+    private val callBack = object : Callback<DataResponseNasaDTO> {
         override fun onResponse(
             call: Call<DataResponseNasaDTO>,
             response: Response<DataResponseNasaDTO>
         ) {
             val serverResponse: DataResponseNasaDTO? = response.body()
             liveData.postValue(
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     checkDataResponse(serverResponse)
                 } else {
                     AppState.OnError(Throwable(SERVER_REQUEST_ERROR.toString()))
@@ -51,7 +57,7 @@ class PictureViewModel(
 
     private fun checkDataResponse(serverResponse: DataResponseNasaDTO?): AppState {
 
-        return if (serverResponse == null){
+        return if (serverResponse == null) {
             AppState.OnError(Throwable(CORRUPTED_DATA.toString()))
         } else {
             AppState.OnSuccess(serverResponse)

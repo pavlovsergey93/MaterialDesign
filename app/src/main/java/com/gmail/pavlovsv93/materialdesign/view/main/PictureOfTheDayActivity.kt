@@ -1,11 +1,11 @@
-package com.gmail.pavlovsv93.materialdesign.view
+package com.gmail.pavlovsv93.materialdesign.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 
-class MainActivity : AppCompatActivity() {
+class PictureOfTheDayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showFragment(fragment: Fragment, backstack: Boolean) {
         val sfm = supportFragmentManager.beginTransaction()
-            .replace(R.id.mframe_container, fragment)
+            .replace(R.id.a_frame_container, fragment)
 
         // Проверка необходимости положить предыдущий фрагмент в бэкстэк
         if (backstack) {

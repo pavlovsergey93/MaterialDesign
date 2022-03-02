@@ -1,4 +1,4 @@
-package com.gmail.pavlovsv93.materialdesign
+package com.gmail.pavlovsv93.materialdesign.repository
 
 import com.gmail.pavlovsv93.materialdesign.model.NasaAPI
 import com.gmail.pavlovsv93.materialdesign.utils.BASE_URI
