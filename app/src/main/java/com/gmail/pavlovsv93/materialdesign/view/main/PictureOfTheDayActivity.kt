@@ -23,6 +23,7 @@ class PictureOfTheDayActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.myThemeRed)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

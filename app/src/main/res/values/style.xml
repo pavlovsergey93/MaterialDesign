@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="myBottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="backgroundTint">@color/blue_grey_500</item>
-        <item name="navigationIconTint">@color/blue_grey_50</item>
+        <item name="backgroundTint">?colorTheme_500</item>
+        <item name="navigationIconTint">?colorTheme_50</item>
     </style>
 
     <style name="myFabBottomAppBar" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="backgroundTint">@color/blue_grey_900</item>
+        <item name="backgroundTint">?colorTheme_900</item>
+    </style>
+
+    <style name="myChipsStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="backgroundTint">?colorTheme_300</item>
+        <item name="android:textAppearance">@font/anton</item>
     </style>
 </resources>
