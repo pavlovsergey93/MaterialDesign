@@ -20,4 +20,7 @@
     <string name="chip_1">Позавчера</string>
     <string name="chip_2">Вчера</string>
     <string name="chip_3">Сегодня</string>
+    <string name="grey_theme">Серая тема</string>
+    <string name="red_theme">Красная темя</string>
+    <string name="purple_theme">Фиолетовая тема</string>
 </resources>

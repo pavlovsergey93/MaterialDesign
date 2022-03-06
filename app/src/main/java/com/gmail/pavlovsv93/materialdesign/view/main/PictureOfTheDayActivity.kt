@@ -15,15 +15,18 @@ import com.gmail.pavlovsv93.materialdesign.utils.TAG_BS
 import com.gmail.pavlovsv93.materialdesign.utils.TAG_MA
 import com.gmail.pavlovsv93.materialdesign.view.bottomsheet.BottomNavigationFragment
 import com.gmail.pavlovsv93.materialdesign.view.menu.navigation.ChipsFragment
+import com.gmail.pavlovsv93.materialdesign.view.theme.ThemeStorage
 import com.google.android.material.bottomappbar.BottomAppBar
 
 class PictureOfTheDayActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var themeStorage : ThemeStorage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.myThemeRed)
+        setTheme(themeStorage.getTheme().theme)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
