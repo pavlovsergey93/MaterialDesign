@@ -1,18 +1,18 @@
-package com.gmail.pavlovsv93.materialdesign.view.theme
+package com.gmail.pavlovsv93.materialdesign.model.theme
 
 import android.content.Context
-import android.content.SharedPreferences
+import com.gmail.pavlovsv93.materialdesign.utils.DEFAULT_THEME
 
 class ThemeStorage(private val context: Context) {
     companion object {
         private val ARG_THEME = "ARG_THEME"
     }
 
-    fun saveTheme(theme: Theme) {
-        context.getSharedPreferences("Theme", Context.MODE_PRIVATE).let {
+    fun saveTheme(keyTheme: Int) {
+        context.getSharedPreferences("Theme", Context.MODE_PRIVATE)?.let {
             it
                 .edit()
-                .putInt(ARG_THEME, theme.key)
+                .putInt(ARG_THEME, keyTheme)
                 .apply()
         }
     }
@@ -20,7 +20,7 @@ class ThemeStorage(private val context: Context) {
     fun getTheme(): Theme {
         context.getSharedPreferences("Theme", Context.MODE_PRIVATE)
             ?.let { sp ->
-                sp.getInt(ARG_THEME, Theme.GREY_THEME.key)
+                sp.getInt(ARG_THEME, DEFAULT_THEME)
                     .let { key ->
                         enumValues<Theme>().forEach { theme ->
                             if (key == theme.key) {

@@ -1,11 +1,12 @@
-package com.gmail.pavlovsv93.materialdesign.view.theme
+package com.gmail.pavlovsv93.materialdesign.model.theme
 
+import androidx.annotation.StringRes
 import com.gmail.pavlovsv93.materialdesign.R
 
 
-enum class Theme(
+enum class Theme (
     val theme: Int,
-    val nameTheme:Int,
+    @StringRes val nameTheme:Int,
     val key: Int
 ) {
     GREY_THEME(R.style.myThemeGrey,R.string.grey_theme, 1),

@@ -27,3 +27,9 @@ const val TODAY = 0
 const val YESTERDAY = 1
 const val DAY_BEFORE_YESTERDAY = 2
 
+const val DEFAULT_THEME = -1
+
+const val KEY_CLICK_SAVE_THEME = "KEY_CLICK_SAVE_THEME"
+const val ARG_CLICK_SAVE_THEME = "ARG_CLICK_SAVE_THEME"
+const val ARG_THEME = "SettingThemeFragment.ARG_THEME"
+

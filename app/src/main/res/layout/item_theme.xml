@@ -4,15 +4,20 @@
     android:id="@+id/item_card_theme"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/margin_8">
+    android:layout_marginHorizontal="@dimen/margin_8"
+    android:layout_marginVertical="@dimen/margin_4">
 
     <com.google.android.material.textview.MaterialTextView
+        android:layout_gravity="center_vertical"
+        android:paddingStart="@dimen/margin_4"
         android:id="@+id/item_card_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fontFamily="@font/anton" />
+        app:fontFamily="@font/anton"
+        android:textSize="@dimen/title_text_size"/>
 
     <com.gmail.pavlovsv93.materialdesign.utils.EquilateralImageView
+        android:layout_margin="@dimen/margin_4"
         android:id="@+id/item_card_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
