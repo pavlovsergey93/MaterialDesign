@@ -75,7 +75,7 @@ class ChipsFragment : Fragment() {
     }
 
     private fun initBottomSheet() {
-        bottomSheetBehavior = BottomSheetBehavior.from(binding.fChipsBottomSheet.fdialogContainer)
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.fChipsBottomSheet.fDialogContainer)
     }
 
     private fun initViewModel() {

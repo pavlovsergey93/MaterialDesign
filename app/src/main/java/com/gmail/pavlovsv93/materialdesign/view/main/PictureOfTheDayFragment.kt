@@ -91,7 +91,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun initBottomSheet() {
         bottomSheetBehavior =
-            BottomSheetBehavior.from(binding.fPicturesBottomSheet.fdialogContainer)
+            BottomSheetBehavior.from(binding.fPicturesBottomSheet.fDialogContainer)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_DRAGGING
 
         // todo обработка состояния открытия BottomSheet

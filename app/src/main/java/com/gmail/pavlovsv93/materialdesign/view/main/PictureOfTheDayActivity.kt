@@ -7,22 +7,24 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.ActivityMainBinding
-import com.gmail.pavlovsv93.materialdesign.utils.BACKSTACK
-import com.gmail.pavlovsv93.materialdesign.utils.NO_BACKSTACK
-import com.gmail.pavlovsv93.materialdesign.utils.TAG_BS
-import com.gmail.pavlovsv93.materialdesign.utils.TAG_MA
 import com.gmail.pavlovsv93.materialdesign.view.bottomsheet.BottomNavigationFragment
 import com.gmail.pavlovsv93.materialdesign.view.menu.navigation.ChipsFragment
+import com.gmail.pavlovsv93.materialdesign.model.theme.ThemeStorage
+import com.gmail.pavlovsv93.materialdesign.utils.*
 import com.google.android.material.bottomappbar.BottomAppBar
 
 class PictureOfTheDayActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val themeStorage : ThemeStorage = ThemeStorage(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(themeStorage.getTheme().theme)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -32,6 +34,12 @@ class PictureOfTheDayActivity : AppCompatActivity() {
 
         this.setSupportActionBar(binding.aBottomAppBar)
         clickedOnFAB()
+        supportFragmentManager.setFragmentResultListener(KEY_CLICK_SAVE_THEME, this
+        ) { _, result ->
+            val keySaveTheme = result.getInt(ARG_CLICK_SAVE_THEME)
+            themeStorage.saveTheme(keySaveTheme)
+            this.recreate()
+        }
     }
 
     private var isMain: Boolean = true
@@ -91,7 +99,7 @@ class PictureOfTheDayActivity : AppCompatActivity() {
                 Log.d(TAG_MA, "menu Favourite")
             }
             android.R.id.home -> {
-                BottomNavigationFragment().show(supportFragmentManager, "")
+                BottomNavigationFragment(themeStorage.getTheme().key).show(supportFragmentManager, "")
                 Log.d(TAG_MA, "burger")
             }
 
