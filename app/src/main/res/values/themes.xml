@@ -19,9 +19,19 @@
         <item name="colorOnTertiaryContainer">?colorTheme_900</item>
 
         <!-- todo хирургическое применение стилей для всех однотипных View -->
-        <item name="bottomAppBarStyle">@style/myBottomAppBar</item> <!-- изменение стиля BottomAppBar -->
-<!--        <item name="floatingActionButtonStyle">@style/myFabBottomAppBar</item> &lt;!&ndash; измененич стиля FAB &ndash;&gt;-->
-<!--        <item name="chipStyle">@style/myChipsStyle</item> &lt;!&ndash; измененич стиля Chips &ndash;&gt;-->
+        <item name="bottomAppBarStyle">@style/myBottomAppBar
+        </item> <!-- изменение стиля BottomAppBar -->
+        <!--        <item name="floatingActionButtonStyle">@style/myFabBottomAppBar</item> &lt;!&ndash; измененич стиля FAB &ndash;&gt;-->
+        <!--        <item name="chipStyle">@style/myChipsStyle</item> &lt;!&ndash; измененич стиля Chips &ndash;&gt;-->
 
     </style>
+
+    <style name="Base.Theme.MaterialDesign.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Base.Theme.MaterialDesign.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Base.Theme.MaterialDesign.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

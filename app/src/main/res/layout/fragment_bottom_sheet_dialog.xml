@@ -14,14 +14,14 @@
         android:id="@+id/f_bottom_sheet_line"
         android:layout_width="100dp"
         android:layout_height="1dp"
-        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:fontFamily="@font/caesar_dressing"
-        android:textSize="@dimen/title_text_size"
+        android:textSize="@dimen/_25tsp"
         android:id="@+id/f_bottom_sheet_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_line" />
 
     <TextView
-        android:textSize="@dimen/description_text_size"
+        android:textSize="@dimen/_18tsp"
         android:id="@+id/f_bottom_sheet_description"
         android:fontFamily="@font/anton"
         android:layout_width="wrap_content"

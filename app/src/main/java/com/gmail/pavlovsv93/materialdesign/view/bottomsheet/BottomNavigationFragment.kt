@@ -1,11 +1,13 @@
 package com.gmail.pavlovsv93.materialdesign.view.bottomsheet
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.BottomNavigationFragmentBinding
 import com.gmail.pavlovsv93.materialdesign.view.menu.other.bottom.app.bar.SettingThemeFragment
+import com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager.ViewPagerActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFragment() {
@@ -27,17 +29,23 @@ class BottomNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFra
         binding.bottomNavigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_nav_view_1 -> {
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.a_frame_container, SettingThemeFragment.newInstance(keyTheme))
-                        .commit()
+                    showFragment(SettingThemeFragment.newInstance(keyTheme), "SettingThemeFragment")
                 }
                 R.id.menu_nav_view_2 -> {
-                    Toast.makeText(requireContext(), "$it", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(requireContext(),ViewPagerActivity::class.java))
+
                 }
             }
             dismiss()
-            return@setNavigationItemSelectedListener false
+            true
         }
+    }
+
+    private fun showFragment(fragment: Fragment, tag: String) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.a_frame_container, fragment)
+            .addToBackStack(tag)
+            .commit()
     }
 
     override fun onDestroy() {

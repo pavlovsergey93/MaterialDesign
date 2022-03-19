@@ -14,6 +14,7 @@ import com.gmail.pavlovsv93.materialdesign.view.bottomsheet.BottomNavigationFrag
 import com.gmail.pavlovsv93.materialdesign.view.menu.navigation.ChipsFragment
 import com.gmail.pavlovsv93.materialdesign.model.theme.ThemeStorage
 import com.gmail.pavlovsv93.materialdesign.utils.*
+import com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager.ViewPagerFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 
 class PictureOfTheDayActivity : AppCompatActivity() {
@@ -29,7 +30,8 @@ class PictureOfTheDayActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            showFragment(PictureOfTheDayFragment.newInstance(), NO_BACKSTACK)
+            //showFragment(PictureOfTheDayFragment.newInstance(), NO_BACKSTACK)
+            showFragment(ViewPagerFragment.newInstance(), NO_BACKSTACK)
         }
 
         this.setSupportActionBar(binding.aBottomAppBar)
