@@ -33,7 +33,6 @@ class BottomNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFra
                 }
                 R.id.menu_nav_view_2 -> {
                     startActivity(Intent(requireContext(),ViewPagerActivity::class.java))
-
                 }
             }
             dismiss()

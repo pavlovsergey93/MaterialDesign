@@ -10,13 +10,14 @@ import com.gmail.pavlovsv93.materialdesign.repository.InMemoryRepositoryInterfac
 
 class ViewPagerActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityViewPagerBinding
+    lateinit var binding: ActivityViewPagerBinding
     private val repo : InMemoryRepositoryInterface = InMemoryRepository()
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityViewPagerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val view = binding.root
+        setContentView(view)
         binding.aViewPager.adapter = ViewPagerAdapter(supportFragmentManager, repo.getFragmentListInMemory())
     }
 }

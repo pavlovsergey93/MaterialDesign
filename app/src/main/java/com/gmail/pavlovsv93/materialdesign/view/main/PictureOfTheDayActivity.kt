@@ -30,8 +30,7 @@ class PictureOfTheDayActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            //showFragment(PictureOfTheDayFragment.newInstance(), NO_BACKSTACK)
-            showFragment(ViewPagerFragment.newInstance(), NO_BACKSTACK)
+            showFragment(PictureOfTheDayFragment.newInstance(), NO_BACKSTACK)
         }
 
         this.setSupportActionBar(binding.aBottomAppBar)
