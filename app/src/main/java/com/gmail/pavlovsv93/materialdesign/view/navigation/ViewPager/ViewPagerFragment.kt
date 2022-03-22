@@ -11,13 +11,13 @@ import com.gmail.pavlovsv93.materialdesign.databinding.FragmentViewPagerBinding
 
 class ViewPagerFragment : Fragment() {
 
-    private val repo : InMemoryRepositoryInterface = InMemoryRepository()
+    private val repo: InMemoryRepositoryInterface = InMemoryRepository()
 
-    companion object{
+    companion object {
         fun newInstance() = ViewPagerFragment()
     }
 
-    private var _binding : FragmentViewPagerBinding? = null
+    private var _binding: FragmentViewPagerBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,7 +31,10 @@ class ViewPagerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewPager.adapter =ViewPagerAdapter(requireActivity().supportFragmentManager, repo.getFragmentListInMemory())
+        binding.viewPager.adapter = ViewPagerAdapter(
+            requireActivity().supportFragmentManager,
+            repo.getFragmentListInMemory(),
+        )
         binding.fTabLayout.setupWithViewPager(binding.viewPager)
     }
 

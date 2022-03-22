@@ -8,14 +8,11 @@ import com.gmail.pavlovsv93.materialdesign.utils.EARTH_KEY
 import com.gmail.pavlovsv93.materialdesign.utils.MARS_KEY
 import com.gmail.pavlovsv93.materialdesign.utils.SOLAR_SYSTEM_KEY
 
-class ViewPagerAdapter(fm: FragmentManager, fragmentList: List<Fragment>) :
+class ViewPagerAdapter(
+    fm: FragmentManager,
+    fragmentList: List<Fragment>,
+) :
     FragmentStatePagerAdapter(fm) {
-
-//    companion object{
-//        private const val EARTH_KEY = 0
-//        private const val MARS_KEY = 1
-//        private const val SOLAR_SYSTEM_KEY = 2
-//    }
 
     private val fragmentListAdapter = fragmentList
 
@@ -24,10 +21,11 @@ class ViewPagerAdapter(fm: FragmentManager, fragmentList: List<Fragment>) :
     override fun getItem(position: Int): Fragment = fragmentListAdapter[position]
 
     override fun getPageTitle(position: Int): CharSequence? {
+
         return when(position){
-            EARTH_KEY -> R.string.earth.toString()
-            MARS_KEY -> R.string.mars.toString()
-            SOLAR_SYSTEM_KEY -> R.string.solar_system.toString()
+            EARTH_KEY -> "Земля" //"${R.string.earth}"
+            MARS_KEY -> "Марс"   //"${R.string.mars}"
+            SOLAR_SYSTEM_KEY -> "Солнечная система"  //"${R.string.solar_system}"
             else -> ""
         }
     }
