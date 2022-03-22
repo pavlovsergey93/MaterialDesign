@@ -14,8 +14,7 @@
         <activity
             android:name=".view.main.PictureOfTheDayActivity"
             android:exported="true"
-            android:label="@string/title_activity_view_pager"
-            android:theme="@style/Base.Theme.MaterialDesign.NoActionBar">
+            android:label="@string/title_activity_view_pager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
