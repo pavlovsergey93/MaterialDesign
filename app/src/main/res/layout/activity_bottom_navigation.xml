@@ -24,5 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/abn_fragment_container"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="selected"
+        app:itemHorizontalTranslationEnabled="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
