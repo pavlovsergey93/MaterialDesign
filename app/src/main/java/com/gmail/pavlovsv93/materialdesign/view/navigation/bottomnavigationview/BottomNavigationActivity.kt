@@ -9,6 +9,7 @@ import com.gmail.pavlovsv93.materialdesign.model.theme.ThemeStorage
 import com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager.EarthFragment
 import com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager.MarsFragment
 import com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager.SolarSystemFragment
+import com.google.android.material.badge.BadgeDrawable.TOP_START
 
 class BottomNavigationActivity : AppCompatActivity() {
 
@@ -30,6 +31,7 @@ class BottomNavigationActivity : AppCompatActivity() {
                 }
                 R.id.menu_mars -> {
                     showFragment(MarsFragment.newInstance())
+                    binding.abnBottomNavigationView.removeBadge(R.id.menu_mars) // todo удаление бейджа
                     true
                 }
                 R.id.menu_solar_system -> {
@@ -41,6 +43,13 @@ class BottomNavigationActivity : AppCompatActivity() {
         }
         // todo по умолчанию задать активное меню
         binding.abnBottomNavigationView.selectedItemId = R.id.menu_mars
+
+        // todo добавление бейджа и задаем значение
+        val badge = binding.abnBottomNavigationView.getOrCreateBadge(R.id.menu_mars)
+        badge?.number = 999                 // todo задать количественное значение бейджа
+        badge.maxCharacterCount = 3         // todo задать максимальное количество выводимых знаков
+        badge.badgeGravity = TOP_START      // todo задать расположение бейджа относитень ItemBottomNavigationView
+
     }
 
     private fun showFragment(fragment: Fragment){
