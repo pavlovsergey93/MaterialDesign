@@ -41,9 +41,9 @@ class ViewPagerFragment : Fragment() {
         )
         binding.fTabLayout.setupWithViewPager(binding.viewPager)
 
-        binding.fTabLayout.getTabAt(EARTH_KEY)?.setIcon(R.drawable.ic_earth)
-        binding.fTabLayout.getTabAt(MARS_KEY)?.setIcon(R.drawable.ic_mars)
-        binding.fTabLayout.getTabAt(SOLAR_SYSTEM_KEY)?.setIcon(R.drawable.ic_system)
+        binding.fTabLayout.getTabAt(EARTH_KEY)?.setCustomView(R.layout.activity_view_pager_item_earth)
+        binding.fTabLayout.getTabAt(MARS_KEY)?.setCustomView(R.layout.activity_view_pager_item_mars)
+        binding.fTabLayout.getTabAt(SOLAR_SYSTEM_KEY)?.setCustomView(R.layout.activity_view_pager_item_solar_system)
     }
 
 

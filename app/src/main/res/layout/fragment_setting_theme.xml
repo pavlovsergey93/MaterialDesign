@@ -4,4 +4,4 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/f_setting_theme_container"
-    android:layout_margin="@dimen/_8sdp"/>
+    android:layout_margin="@dimen/_s8dp"/>

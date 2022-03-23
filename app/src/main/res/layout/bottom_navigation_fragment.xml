@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
-        android:layout_margin="@dimen/_8sdp"
+        android:layout_margin="@dimen/_s8dp"
         app:menu="@menu/menu_bootom_navigation"/>
 
 </LinearLayout>

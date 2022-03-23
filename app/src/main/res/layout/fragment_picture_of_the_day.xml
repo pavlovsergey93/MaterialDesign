@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:singleSelection="true"
-            android:padding="@dimen/_8sdp"
+            android:padding="@dimen/_s8dp"
             android:id="@+id/f_pictures_chip_group"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

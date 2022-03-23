@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="_8sdp">8dp</dimen>
-    <dimen name="_25tsp">25sp</dimen>
-    <dimen name="_18tsp">18sp</dimen>
-    <dimen name="_4sdp">4dp</dimen>
-    <dimen name="_16sdp">16dp</dimen>
+    <dimen name="_t25sp">25sp</dimen>
+    <dimen name="_t20sp">20sp</dimen>
+    <dimen name="_t18sp">18sp</dimen>
+    <dimen name="_s8dp">8dp</dimen>
+    <dimen name="_s4dp">4dp</dimen>
+    <dimen name="_s16dp">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

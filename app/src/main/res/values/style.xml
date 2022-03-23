@@ -13,4 +13,11 @@
         <item name="backgroundTint">?colorTheme_300</item>
         <item name="android:textAppearance">@font/anton</item>
     </style>
+    
+    <style name="myTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="background">?colorTheme_300</item>
+        <item name="tabIconTint">?colorTheme_100</item>
+        <item name="tabTextColor">?colorTheme_900</item>
+        <item name="tabRippleColor">?colorTheme_600</item>
+    </style>
 </resources>
