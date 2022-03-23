@@ -22,7 +22,7 @@
         <item name="bottomAppBarStyle">@style/myBottomAppBar</item> <!-- изменение стиля BottomAppBar -->
         <!--        <item name="floatingActionButtonStyle">@style/myFabBottomAppBar</item> &lt;!&ndash; измененич стиля FAB &ndash;&gt;-->
         <!--        <item name="chipStyle">@style/myChipsStyle</item> &lt;!&ndash; измененич стиля Chips &ndash;&gt;-->
-
+        <item name="bottomNavigationStyle">@style/myBottomNavigationStyle</item>
     </style>
 
     <style name="Base.Theme.MaterialDesign.NoActionBar">

@@ -14,10 +14,12 @@
         <item name="android:textAppearance">@font/anton</item>
     </style>
     
-    <style name="myTabLayout" parent="Widget.MaterialComponents.TabLayout">
-        <item name="background">?colorTheme_300</item>
-        <item name="tabIconTint">?colorTheme_100</item>
-        <item name="tabTextColor">?colorTheme_900</item>
-        <item name="tabRippleColor">?colorTheme_600</item>
+    <style name="myBottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">?colorTheme_600</item>
+        <item name="itemIconTint">?colorTheme_200</item>
+        <item name="itemTextColor">?colorTheme_50</item>
+        <item name="itemTextAppearanceInactive">@font/caesar_dressing</item>
+        <item name="itemTextAppearanceActive">@font/anton</item>
+
     </style>
 </resources>
