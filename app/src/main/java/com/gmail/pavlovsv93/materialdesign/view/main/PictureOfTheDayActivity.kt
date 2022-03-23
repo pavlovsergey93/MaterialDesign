@@ -1,5 +1,7 @@
 package com.gmail.pavlovsv93.materialdesign.view.main
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +40,11 @@ class PictureOfTheDayActivity : AppCompatActivity() {
             val keySaveTheme = result.getInt(ARG_CLICK_SAVE_THEME)
             themeStorage.saveTheme(keySaveTheme)
             this.recreate()
+        }
+
+        supportFragmentManager.setFragmentResultListener(KEY_URL, this){_, result ->
+            val url = result.getString(ARG_URL)
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         }
     }
 

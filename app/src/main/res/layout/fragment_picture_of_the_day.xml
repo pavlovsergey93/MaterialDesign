@@ -87,4 +87,12 @@
         android:id="@+id/f_pictures_bottom_sheet"
         layout="@layout/fragment_bottom_sheet_dialog" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fm_button_video"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="@string/play_video" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
