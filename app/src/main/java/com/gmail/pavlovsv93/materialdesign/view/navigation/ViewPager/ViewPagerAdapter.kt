@@ -20,13 +20,13 @@ class ViewPagerAdapter(
 
     override fun getItem(position: Int): Fragment = fragmentListAdapter[position]
 
-    override fun getPageTitle(position: Int): CharSequence? {
-
-        return when(position){
-            EARTH_KEY -> "Земля" //"${R.string.earth}"
-            MARS_KEY -> "Марс"   //"${R.string.mars}"
-            SOLAR_SYSTEM_KEY -> "Солнечная система"  //"${R.string.solar_system}"
-            else -> ""
-        }
-    }
+//    override fun getPageTitle(position: Int): CharSequence? {
+//
+//        return when(position){
+//            EARTH_KEY -> "Земля"
+//            MARS_KEY -> "Марс"
+//            SOLAR_SYSTEM_KEY -> "Солнечная система"
+//            else -> ""
+//        }
+//    }
 }

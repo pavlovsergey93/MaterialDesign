@@ -4,10 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.repository.InMemoryRepository
 import com.gmail.pavlovsv93.materialdesign.repository.InMemoryRepositoryInterface
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentViewPagerBinding
+import com.gmail.pavlovsv93.materialdesign.utils.EARTH_KEY
+import com.gmail.pavlovsv93.materialdesign.utils.MARS_KEY
+import com.gmail.pavlovsv93.materialdesign.utils.SOLAR_SYSTEM_KEY
 
 class ViewPagerFragment : Fragment() {
 
@@ -36,6 +41,10 @@ class ViewPagerFragment : Fragment() {
             repo.getFragmentListInMemory(),
         )
         binding.fTabLayout.setupWithViewPager(binding.viewPager)
+
+        binding.fTabLayout.getTabAt(EARTH_KEY)?.setIcon(R.drawable.ic_earth)
+        binding.fTabLayout.getTabAt(MARS_KEY)?.setIcon(R.drawable.ic_mars)
+        binding.fTabLayout.getTabAt(SOLAR_SYSTEM_KEY)?.setIcon(R.drawable.ic_system)
     }
 
 
