@@ -25,7 +25,7 @@
     <string name="purple_theme">Фиолетовая тема</string>
     <string name="earth">Земля</string>
     <string name="mars">Марс</string>
-    <string name="solar_system">Солнечная система</string>
+    <string name="solar_system">Cистема</string>
     <string name="title_activity_view_pager">ViewPagerActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -35,4 +35,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="menu_nav_view_3">ActivityBottomNavigationView</string>
 </resources>
