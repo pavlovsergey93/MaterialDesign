@@ -2,6 +2,7 @@ package com.gmail.pavlovsv93.materialdesign.view.navigation.bottomnavigationview
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.ActivityBottomNavigationBinding
@@ -27,6 +28,10 @@ class BottomNavigationActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.menu_earth -> {
                     showFragment(EarthFragment.newInstance())
+                    binding.abnBottomNavigationView.getBadge(R.id.menu_earth)?.let {
+                        it.isVisible = false
+                        it.clearNumber()
+                    }
                     true
                 }
                 R.id.menu_mars -> {
@@ -43,12 +48,16 @@ class BottomNavigationActivity : AppCompatActivity() {
         }
         // todo по умолчанию задать активное меню
         binding.abnBottomNavigationView.selectedItemId = R.id.menu_mars
+        binding.abnBottomNavigationView.selectedItemId = R.id.menu_earth
 
         // todo добавление бейджа и задаем значение
         val badge = binding.abnBottomNavigationView.getOrCreateBadge(R.id.menu_mars)
         badge?.number = 999                 // todo задать количественное значение бейджа
         badge.maxCharacterCount = 3         // todo задать максимальное количество выводимых знаков
         badge.badgeGravity = TOP_START      // todo задать расположение бейджа относитень ItemBottomNavigationView
+
+        val badgeVisible = binding.abnBottomNavigationView.getOrCreateBadge(R.id.menu_earth)
+        badgeVisible?.isVisible = true
 
     }
 

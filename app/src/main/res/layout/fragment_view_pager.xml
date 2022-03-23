@@ -11,7 +11,8 @@
         app:layout_constraintBottom_toTopOf="@id/view_pager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorAnimationMode="elastic" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
