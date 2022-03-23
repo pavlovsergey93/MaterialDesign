@@ -40,6 +40,7 @@ class ViewPagerFragment : Fragment() {
             repo.getFragmentListInMemory(),
         )
         binding.fTabLayout.setupWithViewPager(binding.viewPager)
+        binding.viewPager.setPageTransformer(true, ViewPagerTransformer())
 
         binding.fTabLayout.getTabAt(EARTH_KEY)?.setCustomView(R.layout.activity_view_pager_item_earth)
         binding.fTabLayout.getTabAt(MARS_KEY)?.setCustomView(R.layout.activity_view_pager_item_mars)
