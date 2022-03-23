@@ -1,19 +1,19 @@
-package com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager
+package com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.gmail.pavlovsv93.materialdesign.databinding.FragmentMarsBinding
+import com.gmail.pavlovsv93.materialdesign.databinding.FragmentEarthBinding
 
-class MarsFragment : Fragment() {
+class EarthFragment : Fragment() {
 
-    private var _binding : FragmentMarsBinding? = null
+    private var _binding : FragmentEarthBinding? = null
     private val binding get() = _binding!!
 
     companion object{
-        fun newInstance() = MarsFragment()
+        fun newInstance() = EarthFragment()
     }
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class MarsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMarsBinding.inflate(inflater, container, false)
+        _binding = FragmentEarthBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -1,4 +1,4 @@
-package com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager
+package com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

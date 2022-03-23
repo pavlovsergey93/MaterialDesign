@@ -1,10 +1,9 @@
-package com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager
+package com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.repository.InMemoryRepository

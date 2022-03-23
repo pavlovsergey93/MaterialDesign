@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.BottomNavigationFragmentBinding
 import com.gmail.pavlovsv93.materialdesign.view.menu.other.bottom.app.bar.SettingThemeFragment
-import com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager.ViewPagerActivity
+import com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager.ViewPagerActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFragment() {

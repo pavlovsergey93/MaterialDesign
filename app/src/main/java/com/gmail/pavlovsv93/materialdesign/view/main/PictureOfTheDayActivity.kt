@@ -7,14 +7,12 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentResultListener
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.ActivityMainBinding
 import com.gmail.pavlovsv93.materialdesign.view.bottomsheet.BottomNavigationFragment
 import com.gmail.pavlovsv93.materialdesign.view.menu.navigation.ChipsFragment
 import com.gmail.pavlovsv93.materialdesign.model.theme.ThemeStorage
 import com.gmail.pavlovsv93.materialdesign.utils.*
-import com.gmail.pavlovsv93.materialdesign.view.navigation.ViewPager.ViewPagerFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 
 class PictureOfTheDayActivity : AppCompatActivity() {
