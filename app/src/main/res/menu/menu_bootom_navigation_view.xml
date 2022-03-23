@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_earth"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/earth"
+        app:tooltipText="3я планета в солнечной системе"/>
+    <item
+        android:id="@+id/menu_mars"
+        android:icon="@drawable/ic_mars"
+        android:title="@string/mars"
+        app:tooltipText="4я планета в солнечной системе"/>
+    <item
+        android:id="@+id/menu_solar_system"
+        android:icon="@drawable/ic_system"
+        android:title="@string/solar_system"
+        app:tooltipText="Солнечная система"/>
+
+</menu>

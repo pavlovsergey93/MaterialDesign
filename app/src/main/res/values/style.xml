@@ -13,4 +13,13 @@
         <item name="backgroundTint">?colorTheme_300</item>
         <item name="android:textAppearance">@font/anton</item>
     </style>
+    
+    <style name="myBottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">?colorTheme_600</item>
+        <item name="itemIconTint">?colorTheme_200</item>
+        <item name="itemTextColor">?colorTheme_50</item>
+        <item name="itemTextAppearanceInactive">@font/caesar_dressing</item>
+        <item name="itemTextAppearanceActive">@font/anton</item>
+
+    </style>
 </resources>

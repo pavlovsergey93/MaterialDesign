@@ -3,20 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/bg_earth.xml" value="0.142" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/bg_mars.xml" value="0.142" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/bg_system.xml" value="0.142" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic__3bef2.xml" value="0.2" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic_earth.xml" value="0.1135" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic_earth_globe_asia_australia.xml" value="0.124" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic_mars_dan_gerhards_01.xml" value="0.124" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic_planet_svgrepo_com.xml" value="0.124" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic_system.xml" value="0.1135" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/drawable/ic_wikipedia.xml" value="0.1605" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/font/anton.xml" value="0.18333333333333332" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/font/caesar_dressing.xml" value="0.18333333333333332" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.136" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_view_pager.xml" value="0.136" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_view_pager_item_earth.xml" value="0.2" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_view_pager_item_mars.xml" value="0.4" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_view_pager_item_solar_system.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/bottom_navigation_fragment.xml" value="0.12360688956433637" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.1234375" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_bottom_sheet_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_chips.xml" value="0.264" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_earth.xml" value="0.1" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_first.xml" value="0.153125" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_main.xml" value="0.1" />
-        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.264" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_mars.xml" value="0.11307972902553413" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.12" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_setting_theme.xml" value="0.25416666666666665" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_solar_system.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_theme_fragment.xml" value="0.153125" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_view_pager.xml" value="0.24003623188405798" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_view_pager_2.xml" value="0.11302083333333333" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/item_fragment_pager.xml" value="0.136" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/item_theme.xml" value="0.25416666666666665" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_bootom_navigation.xml" value="0.1234375" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_bootom_navigation_view.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_bottom_app_bar.xml" value="0.25416666666666665" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_other_bottom_app_bar.xml" value="0.1234375" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />

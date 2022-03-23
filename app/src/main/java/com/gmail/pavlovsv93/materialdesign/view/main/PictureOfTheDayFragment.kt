@@ -21,6 +21,9 @@ import com.gmail.pavlovsv93.materialdesign.viewmodel.AppState
 import com.gmail.pavlovsv93.materialdesign.viewmodel.PictureViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
+const val KEY_URL = "KEY_URL"
+const val ARG_URL = "ARG_URL"
+
 class PictureOfTheDayFragment : Fragment() {
 
     companion object {
@@ -151,21 +154,24 @@ class PictureOfTheDayFragment : Fragment() {
                     })
             }
             is AppState.OnLoading -> {
+                binding.fmButtonVideo.isVisible = false
                 binding.fpicturesImageview.isVisible = false
                 binding.fpicturesProgress.isVisible = true
             }
             is AppState.OnSuccess -> {
-                binding.fpicturesImageview.isVisible = true
                 binding.fpicturesProgress.isVisible = false
-                if (state.responseData.url.toString().takeLast(4) == ".jpg") {
+
+                // if (state.responseData.mediaType != null){ //todo для проверки
+                if (state.responseData.mediaType == "image"){
+                binding.fpicturesImageview.isVisible = true
                     if (state.responseData.hdurl == null) {
                         binding.fpicturesImageview.load(state.responseData.url)
                     } else {
                         binding.fpicturesImageview.load(state.responseData.hdurl)
                     }
                 } else {
-                    binding.fpicturesImageview.setImageDrawable(R.drawable.ic_outline_image_24.toDrawable())
-                    binding.fpicturesProgress.showSnackBarNoAction(R.string.video_info.toString())
+                    binding.fmButtonVideo.isVisible = true
+                    initShowVideoButton(state.responseData.url)
                 }
 
                 with(binding.fPicturesBottomSheet) {
@@ -175,4 +181,14 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
     }
+    private fun initShowVideoButton(url : String) {
+        val url1 = "https://www.youtube.com/embed/PpyPgJHKxSw?rel=0"
+        binding.fmButtonVideo.setOnClickListener {
+            parentFragmentManager.setFragmentResult(KEY_URL, Bundle().apply {
+                //putString(ARG_URL, url1) //todo для проверки
+                putString(ARG_URL, url)
+            })
+        }
+    }
+
 }

@@ -1,6 +1,5 @@
 package com.gmail.pavlovsv93.materialdesign.viewmodel
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.view.menu.other.bottom.app.bar.SettingThemeFragment
 import com.gmail.pavlovsv93.materialdesign.model.theme.Theme
-import com.gmail.pavlovsv93.materialdesign.model.theme.ThemeStorage
 import com.gmail.pavlovsv93.materialdesign.utils.DEFAULT_THEME
 import com.gmail.pavlovsv93.materialdesign.utils.EquilateralImageView
 import com.google.android.material.textview.MaterialTextView
@@ -49,7 +47,7 @@ class SettingThemeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingThemeViewHolder =
         SettingThemeViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_theme, parent, false) as View
+            LayoutInflater.from(parent.context).inflate(R.layout.fragment_setting_theme_item_theme, parent, false) as View
         )
 
     override fun onBindViewHolder(holder: SettingThemeViewHolder, position: Int) {
