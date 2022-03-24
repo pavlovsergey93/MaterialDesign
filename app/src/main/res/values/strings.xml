@@ -37,5 +37,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="menu_nav_view_3">ActivityBottomNavigationView</string>
     <string name="play_video">Открыть видеоролик</string>
-    <string name="menu_nav_view_4">ConstraintLayout</string>
+    <string name="menu_nav_view_4">Layouts</string>
+    <string name="constraint_layout">ConstraintLayout</string>
+    <string name="coordinator_layout">CoordinatorLayout</string>
+    <string name="motion_layout">MotionLayout</string>
 </resources>
