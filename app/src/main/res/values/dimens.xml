@@ -7,4 +7,5 @@
     <dimen name="_s4dp">4dp</dimen>
     <dimen name="_s16dp">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="_t4sp">4sp</dimen>
 </resources>
