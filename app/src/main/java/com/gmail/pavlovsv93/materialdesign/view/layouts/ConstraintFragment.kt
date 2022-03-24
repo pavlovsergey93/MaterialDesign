@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentConstraintBinding
 
-class ConstraintFragment: Fragment() {
+class ConstraintFragment : Fragment() {
 
-    private var _binding :FragmentConstraintBinding? = null
+    private var _binding: FragmentConstraintBinding? = null
     private val binding get() = _binding!!
 
-    companion object{
+    private var flag: Boolean = false
+
+    companion object {
         fun newInstance() = ConstraintFragment()
     }
 
@@ -33,5 +35,13 @@ class ConstraintFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.materialBtnFree.setOnClickListener {
+            if (!flag) {
+                binding.group.visibility = View.GONE
+            } else {
+                binding.group.visibility = View.VISIBLE
+            }
+            flag = !flag
+        }
     }
 }

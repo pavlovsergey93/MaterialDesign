@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/_s4dp">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="material_btn_ba,material_btn_ab"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_gl_25"
@@ -48,14 +56,22 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/vertical_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="material_btn_ab" />
+
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/material_btn_ab"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:autoSizeMaxTextSize="@dimen/_t25sp"
         android:autoSizeMinTextSize="@dimen/_t4sp"
         android:autoSizeTextType="uniform"
-        android:maxLines="1"
-        android:text="1_fdvsdfrtwfgdsa_1"
+        android:maxLines="3"
+        android:text="Эта кнопка привязана к Guideline"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_gl_25"
         app:layout_constraintEnd_toStartOf="@+id/vertical_gl_50"
         app:layout_constraintHeight_percent="0.15"
@@ -64,5 +80,40 @@
         app:layout_constraintTop_toTopOf="@+id/horizontal_gl_25"
         app:layout_constraintVertical_bias="0.72"
         app:layout_constraintWidth_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/horizontal_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="material_btn_ba" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/material_btn_ba"
+        android:text="Эта кнопка привязана к hGuideline и vBarrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_gl_50"
+        app:layout_constraintEnd_toEndOf="@id/vertical_barrier"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_gl_50"
+        app:layout_constraintWidth_percent="0.3"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:text="Эта кнопка располагается только в этом углу"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/material_btn_free"
+        app:layout_constraintTop_toTopOf="@id/horizontal_barrier"
+        app:layout_constraintStart_toStartOf="@id/vertical_barrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintHeight_percent="0.15"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

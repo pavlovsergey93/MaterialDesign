@@ -24,6 +24,7 @@ class LayoutActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_constraint_layout -> {
+                    showFragment(CoordinatorFragment.newInstance())
                     true
                 }
                 R.id.menu_constraint_layout -> {
