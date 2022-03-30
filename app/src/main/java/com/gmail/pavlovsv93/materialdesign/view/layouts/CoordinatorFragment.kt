@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentConstraintBinding
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentCoordinatorBinding
@@ -33,6 +34,10 @@ class CoordinatorFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // todo задать behavior с кода
+        val behavior = ToFABBehavior(requireContext())
+        (binding.fCoordinatorFab.layoutParams as CoordinatorLayout.LayoutParams).behavior = behavior
 
     }
 }

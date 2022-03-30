@@ -15,7 +15,7 @@ class LayoutActivity : AppCompatActivity() {
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
 
-        binding.alBottomNavigationView.selectedItemId = R.id.menu_constraint_layout
+
 
         binding.alBottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
@@ -23,16 +23,18 @@ class LayoutActivity : AppCompatActivity() {
                     showFragment(ConstraintFragment.newInstance())
                     true
                 }
-                R.id.menu_constraint_layout -> {
+                R.id.menu_coordinator_layout -> {
                     showFragment(CoordinatorFragment.newInstance())
                     true
                 }
-                R.id.menu_constraint_layout -> {
+                R.id.menu_motion_layout -> {
+                    showFragment(MotionFragment.newInstance())
                     true
                 }
                 else -> false
             }
         }
+        binding.alBottomNavigationView.selectedItemId = R.id.menu_constraint_layout
 
     }
 
