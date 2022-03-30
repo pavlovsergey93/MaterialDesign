@@ -6,6 +6,8 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.BottomNavigationFragmentBinding
+import com.gmail.pavlovsv93.materialdesign.view.layouts.ConstraintFragment
+import com.gmail.pavlovsv93.materialdesign.view.layouts.LayoutActivity
 import com.gmail.pavlovsv93.materialdesign.view.menu.other.bottom.app.bar.SettingThemeFragment
 import com.gmail.pavlovsv93.materialdesign.view.navigation.bottomnavigationview.BottomNavigationActivity
 import com.gmail.pavlovsv93.materialdesign.view.navigation.viewpager.ViewPagerActivity
@@ -33,12 +35,15 @@ class BottomNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFra
                     showFragment(SettingThemeFragment.newInstance(keyTheme), "SettingThemeFragment")
                 }
                 R.id.menu_nav_view_2 -> {
-                    startActivity(Intent(requireContext(),ViewPagerActivity::class.java))
+                    startActivity(Intent(requireContext(), ViewPagerActivity::class.java))
                 }
                 R.id.menu_nav_view_3 -> {
-                    startActivity(Intent(requireContext(),BottomNavigationActivity::class.java))
-
-                }            }
+                    startActivity(Intent(requireContext(), BottomNavigationActivity::class.java))
+                }
+                R.id.menu_nav_view_4 -> {
+                    startActivity(Intent(requireContext(), LayoutActivity::class.java))
+                }
+            }
             dismiss()
             true
         }
