@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.BottomNavigationFragmentBinding
+import com.gmail.pavlovsv93.materialdesign.ui.animation.AnimationActivity
 import com.gmail.pavlovsv93.materialdesign.ui.layout.LayoutActivity
 import com.gmail.pavlovsv93.materialdesign.ui.setting.theme.SettingThemeFragment
 import com.gmail.pavlovsv93.materialdesign.ui.navigation.BottomNavigationActivity
@@ -41,6 +42,9 @@ class BottomNavigationFragment(private var keyTheme: Int) : BottomSheetDialogFra
                 }
                 R.id.menu_nav_view_4 -> {
                     startActivity(Intent(requireContext(), LayoutActivity::class.java))
+                }
+				R.id.menu_nav_view_5 -> {
+                    startActivity(Intent(requireContext(), AnimationActivity::class.java))
                 }
             }
             dismiss()

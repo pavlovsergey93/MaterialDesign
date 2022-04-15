@@ -27,6 +27,9 @@
         <activity android:name="com.gmail.pavlovsv93.materialdesign.ui.view.pager.ViewPagerActivity"
             android:exported="true">
         </activity>
+		<activity android:name=".ui.animation.AnimationActivity"
+            android:exported="true">
+        </activity>
         <activity android:name="com.gmail.pavlovsv93.materialdesign.ui.navigation.BottomNavigationActivity"
             android:exported="true"/>
         <activity android:name=".ui.layout.LayoutActivity" />

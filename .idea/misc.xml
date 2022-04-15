@@ -16,6 +16,7 @@
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/font/anton.xml" value="0.18333333333333332" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/font/caesar_dressing.xml" value="0.18333333333333332" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout-v26/fragment_constraint.xml" value="0.11302083333333333" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_animation.xml" value="0.1" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.136" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_layouts.xml" value="0.1" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -25,6 +26,8 @@
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/activity_view_pager_item_solar_system.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/bottom_navigation_fragment.xml" value="0.12360688956433637" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.1234375" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_boom.xml" value="0.15403005464480873" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_boom_recycler_item.xml" value="0.15403005464480873" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_bottom_sheet_dialog.xml" value="0.16" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_chips.xml" value="0.264" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_constraint.xml" value="0.264" />
@@ -37,12 +40,14 @@
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_motion_end.xml" value="0.1" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.1" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_setting_theme.xml" value="0.25416666666666665" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_setting_theme_item_theme.xml" value="0.1" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_solar_system.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_theme_fragment.xml" value="0.153125" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_view_pager.xml" value="0.24003623188405798" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/fragment_view_pager_2.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/item_fragment_pager.xml" value="0.136" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/layout/item_theme.xml" value="0.25416666666666665" />
+        <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_animation_activity_bottom_navigation_view.xml" value="0.16052631578947368" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_bootom_navigation.xml" value="0.1234375" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_bootom_navigation_view.xml" value="0.11302083333333333" />
         <entry key="..\:/GB/MaterialDesign/app/src/main/res/menu/menu_bottom_app_bar.xml" value="0.25416666666666665" />

@@ -37,7 +37,6 @@ class LayoutActivity : AppCompatActivity() {
             }
         }
         binding.alBottomNavigationView.selectedItemId = R.id.menu_constraint_layout
-
     }
 
     private fun showFragment(f: Fragment){
