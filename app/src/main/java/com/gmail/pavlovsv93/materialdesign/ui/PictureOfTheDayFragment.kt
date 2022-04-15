@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import androidx.transition.ChangeImageTransform
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
@@ -14,7 +13,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.transition.TransitionManager
+import androidx.transition.*
 import coil.load
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.FragmentPictureOfTheDayBinding
@@ -28,179 +27,206 @@ const val ARG_URL = "ARG_URL"
 
 class PictureOfTheDayFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PictureOfTheDayFragment()
-    }
+	companion object {
+		fun newInstance() = PictureOfTheDayFragment()
+	}
 
+	private var flag: Boolean = false
 	private var flagZoom: Boolean = false
-    private var _binding: FragmentPictureOfTheDayBinding? = null
-    private val binding: FragmentPictureOfTheDayBinding get() = _binding!!
-    private val viewModel: PictureViewModel by lazy {
-        ViewModelProvider(this).get(PictureViewModel::class.java)
-    }
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+	private var _binding: FragmentPictureOfTheDayBinding? = null
+	private val binding: FragmentPictureOfTheDayBinding get() = _binding!!
+	private val viewModel: PictureViewModel by lazy {
+		ViewModelProvider(this).get(PictureViewModel::class.java)
+	}
+	private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+	override fun onCreateView(
+		inflater: LayoutInflater,
+		container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View? {
+		_binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
+		return binding.root
+	}
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
+	override fun onDestroy() {
+		super.onDestroy()
+		_binding = null
+	}
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+	@RequiresApi(Build.VERSION_CODES.O)
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
 
-        initViewModel()
+		initViewModel()
 
-        binding.fpicturesTextInputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse(WIKI_URI + binding.fpicturesTextInputEditText.text.toString())
-            })
-        }
+		binding.fpicturesTextInputLayout.setEndIconOnClickListener {
+			startActivity(Intent(Intent.ACTION_VIEW).apply {
+				data = Uri.parse(WIKI_URI + binding.fpicturesTextInputEditText.text.toString())
+			})
+		}
 
-        initBottomSheet()
+		initBottomSheet()
 
-        binding.fPicturesChipGroup.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.chips_3 -> {
-                    viewModel.sendServerRequestToDate(date = getDate(DAY_BEFORE_YESTERDAY))
-                }
-                R.id.chips_2 -> {
-                    viewModel.sendServerRequestToDate(date = getDate(YESTERDAY))
-                }
-                R.id.chips_1 -> {
-                    viewModel.sendServerRequestToDate(date = getDate(TODAY))
-                }
-            }
-        }
+		binding.fPicturesChipGroup.setOnCheckedChangeListener { _, checkedId ->
+			when (checkedId) {
+				R.id.chips_3 -> {
+					viewModel.sendServerRequestToDate(date = getDate(DAY_BEFORE_YESTERDAY))
+				}
+				R.id.chips_2 -> {
+					viewModel.sendServerRequestToDate(date = getDate(YESTERDAY))
+				}
+				R.id.chips_1 -> {
+					viewModel.sendServerRequestToDate(date = getDate(TODAY))
+				}
+			}
+		}
 		binding.fpicturesImageview.setOnClickListener {
 			val cit = ChangeImageTransform()
 			cit.duration = 2000
 			TransitionManager.beginDelayedTransition(binding.mainContainer, cit)
 			flagZoom = !flagZoom
-			binding.fpicturesImageview.scaleType = if(flagZoom){
+			binding.fpicturesImageview.scaleType = if (flagZoom) {
 				ImageView.ScaleType.CENTER_CROP
 			} else {
 				ImageView.ScaleType.CENTER_INSIDE
 			}
 		}
-    }
+	}
 
-    private fun showFragment(fragment: Fragment, backstack: Boolean) {
-        val sfm = parentFragmentManager.beginTransaction()
-            .replace(R.id.a_frame_container, fragment)
-        // Проверка необходимости положить предыдущий фрагмент в бэкстэк
-        if (backstack) {
-            sfm.addToBackStack(fragment.toString())
-        }
-        sfm.commit()
-    }
+	private fun showFragment(fragment: Fragment, backstack: Boolean) {
+		val sfm = parentFragmentManager.beginTransaction()
+			.replace(R.id.a_frame_container, fragment)
+		// Проверка необходимости положить предыдущий фрагмент в бэкстэк
+		if (backstack) {
+			sfm.addToBackStack(fragment.toString())
+		}
+		sfm.commit()
+	}
 
-    private fun initBottomSheet() {
-        bottomSheetBehavior =
-            BottomSheetBehavior.from(binding.fPicturesBottomSheet.fDialogContainer)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_DRAGGING
+	private fun initBottomSheet() {
+		bottomSheetBehavior =
+			BottomSheetBehavior.from(binding.fPicturesBottomSheet.fDialogContainer)
+		bottomSheetBehavior.state = BottomSheetBehavior.STATE_DRAGGING
 
-        // todo обработка состояния открытия BottomSheet
-        bottomSheetBehavior.addBottomSheetCallback(object :
-            BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                // todo обработка состояния "STATE" BottomSheet
-                when (newState) {
-                    BottomSheetBehavior.STATE_COLLAPSED -> {
-                        Log.d(TAG_BS, "onStateChanged: STATE_COLLAPSED $newState")
-                    }
-                    BottomSheetBehavior.STATE_DRAGGING -> {
-                        Log.d(TAG_BS, "onStateChanged: STATE_DRAGGING $newState")
-                    }
-                    BottomSheetBehavior.STATE_EXPANDED -> {
-                        Log.d(TAG_BS, "onStateChanged: STATE_EXPANDED $newState")
-                    }
-                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {
-                        Log.d(TAG_BS, "onStateChanged: STATE_HALF_EXPANDED $newState")
-                    }
-                    BottomSheetBehavior.STATE_HIDDEN -> {
-                        Log.d(TAG_BS, "onStateChanged: STATE_HIDDEN $newState")
-                    }
-                    BottomSheetBehavior.STATE_SETTLING -> {
-                        Log.d(TAG_BS, "onStateChanged: STATE_SETTLING $newState")
-                    }
-                }
-            }
+		// todo обработка состояния открытия BottomSheet
+		bottomSheetBehavior.addBottomSheetCallback(object :
+			BottomSheetBehavior.BottomSheetCallback() {
+			override fun onStateChanged(bottomSheet: View, newState: Int) {
+				if(newState <= 3) {flag = true}
+				else if (newState == 4) {flag = false}
+				val tr = TransitionSet()
+				val slide = Slide()
+				slide.duration = 2000
+				val cb = ChangeBounds()
+				cb.duration = 2000
+				tr.addTransition(slide)
+				tr.addTransition(cb)
+				tr.ordering = TransitionSet.ORDERING_TOGETHER
+				TransitionManager.beginDelayedTransition(
+					binding.fPicturesBottomSheet.fDialogContainer,
+					tr
+				)
+				if (flag) {
+					binding.fPicturesBottomSheet.fBottomSheetDescription.visibility =
+						View.VISIBLE
+				} else {
+					binding.fPicturesBottomSheet.fBottomSheetDescription.visibility =
+						View.GONE
+				}
+				// todo обработка состояния "STATE" BottomSheet
+				when (newState) {
+					BottomSheetBehavior.STATE_COLLAPSED -> {
+						Log.d(TAG_BS, "onStateChanged: STATE_COLLAPSED $newState")
+					}
+					BottomSheetBehavior.STATE_DRAGGING -> {
+						Log.d(TAG_BS, "onStateChanged: STATE_DRAGGING $newState")
+					}
+					BottomSheetBehavior.STATE_EXPANDED -> {
+						Log.d(TAG_BS, "onStateChanged: STATE_EXPANDED $newState")
+					}
 
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                //todo возвращает значение, на сколько сейчас BottomSheet открыт
-                Log.d(TAG_BS, "onSlide: $slideOffset")
-            }
+					BottomSheetBehavior.STATE_HALF_EXPANDED -> {
+						Log.d(TAG_BS, "onStateChanged: STATE_HALF_EXPANDED $newState")
+					}
+					BottomSheetBehavior.STATE_HIDDEN -> {
+						Log.d(TAG_BS, "onStateChanged: STATE_HIDDEN $newState")
+					}
+					BottomSheetBehavior.STATE_SETTLING -> {
+						Log.d(TAG_BS, "onStateChanged: STATE_SETTLING $newState")
+					}
+				}
+			}
 
-        })
-    }
+			override fun onSlide(bottomSheet: View, slideOffset: Float) {
+				//todo возвращает значение, на сколько сейчас BottomSheet открыт
+				Log.d(TAG_BS, "onSlide: $slideOffset")
+			}
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun initViewModel() {
-        viewModel.getLiveData().observe(viewLifecycleOwner, Observer<AppState> { state ->
-            renderData(state)
-        })
-        viewModel.sendServerRequestToDate(R.id.fpictures_progress, getDate(TODAY))
-    }
+		})
+	}
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun renderData(state: AppState) {
-        when (state) {
-            is AppState.OnError -> {
-                binding.fpicturesImageview.isVisible = false
-                binding.fpicturesProgress.isVisible = false
-                binding.fpicturesProgress.showSnackBarAction(
-                    state.error.toString(),
-                    R.string.reload.toString(),
-                    {
-                        viewModel.sendServerRequestToDate(R.id.fpictures_progress, getDate(TODAY))
-                    })
-            }
-            is AppState.OnLoading -> {
-                binding.fmButtonVideo.isVisible = false
-                binding.fpicturesImageview.isVisible = false
-                binding.fpicturesProgress.isVisible = true
-            }
-            is AppState.OnSuccess -> {
-                binding.fpicturesProgress.isVisible = false
+	@RequiresApi(Build.VERSION_CODES.O)
+	private fun initViewModel() {
+		viewModel.getLiveData().observe(viewLifecycleOwner, Observer<AppState> { state ->
+			renderData(state)
+		})
+		viewModel.sendServerRequestToDate(R.id.fpictures_progress, getDate(TODAY))
+	}
 
-                //if (state.responseData.mediaType != null){ //todo для проверки
-                if (state.responseData.mediaType != "image"){
-                binding.fpicturesImageview.isVisible = true
-                    if (state.responseData.hdurl == null) {
-                        binding.fpicturesImageview.load(state.responseData.url)
-                    } else {
-                        binding.fpicturesImageview.load(state.responseData.hdurl)
-                    }
-                } else {
-                    binding.fmButtonVideo.isVisible = true
-                    initShowVideoButton(state.responseData.url)
-                }
+	@RequiresApi(Build.VERSION_CODES.O)
+	private fun renderData(state: AppState) {
+		when (state) {
+			is AppState.OnError -> {
+				binding.fpicturesImageview.isVisible = false
+				binding.fpicturesProgress.isVisible = false
+				binding.fpicturesProgress.showSnackBarAction(
+					state.error.toString(),
+					R.string.reload.toString(),
+					{
+						viewModel.sendServerRequestToDate(
+							R.id.fpictures_progress,
+							getDate(TODAY)
+						)
+					})
+			}
+			is AppState.OnLoading -> {
+				binding.fmButtonVideo.isVisible = false
+				binding.fpicturesImageview.isVisible = false
+				binding.fpicturesProgress.isVisible = true
+			}
+			is AppState.OnSuccess -> {
+				binding.fpicturesProgress.isVisible = false
 
-                with(binding.fPicturesBottomSheet) {
-                    fBottomSheetTitle.text = state.responseData.title
-                    fBottomSheetDescription.text = state.responseData.explanation
-                }
-            }
-        }
-    }
-    private fun initShowVideoButton(url : String) {
-        val url1 = "https://www.youtube.com/embed/PpyPgJHKxSw?rel=0"
-        binding.fmButtonVideo.setOnClickListener {
-            parentFragmentManager.setFragmentResult(KEY_URL, Bundle().apply {
-                //putString(ARG_URL, url1) //todo для проверки
-                putString(ARG_URL, url)
-            })
-        }
-    }
+				//if (state.responseData.mediaType != null){ //todo для проверки
+				if (state.responseData.mediaType != "image") {
+					binding.fpicturesImageview.isVisible = true
+					if (state.responseData.hdurl == null) {
+						binding.fpicturesImageview.load(state.responseData.url)
+					} else {
+						binding.fpicturesImageview.load(state.responseData.hdurl)
+					}
+				} else {
+					binding.fmButtonVideo.isVisible = true
+					initShowVideoButton(state.responseData.url)
+				}
+
+				with(binding.fPicturesBottomSheet) {
+					fBottomSheetTitle.text = state.responseData.title
+					fBottomSheetDescription.text = state.responseData.explanation
+				}
+			}
+		}
+	}
+
+	private fun initShowVideoButton(url: String) {
+		val url1 = "https://www.youtube.com/embed/PpyPgJHKxSw?rel=0"
+		binding.fmButtonVideo.setOnClickListener {
+			parentFragmentManager.setFragmentResult(KEY_URL, Bundle().apply {
+				//putString(ARG_URL, url1) //todo для проверки
+				putString(ARG_URL, url)
+			})
+		}
+	}
 
 }

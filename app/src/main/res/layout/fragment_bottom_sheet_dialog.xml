@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/f_dialog_container"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="50dp"
-    android:background="?colorTheme_200"
-    app:layout_behavior="@string/bottom_sheet_behavior">
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:id="@+id/f_dialog_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?colorTheme_200"
+		app:behavior_hideable="true"
+		app:behavior_peekHeight="50dp"
+		app:layout_behavior="@string/bottom_sheet_behavior">
 
-    <View
-        android:background="@color/black"
-        android:id="@+id/f_bottom_sheet_line"
-        android:layout_width="100dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/_s8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+	<View
+			android:id="@+id/f_bottom_sheet_line"
+			android:layout_width="100dp"
+			android:layout_height="1dp"
+			android:layout_marginTop="@dimen/_s8dp"
+			android:background="@color/black"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:fontFamily="@font/caesar_dressing"
-        android:textSize="@dimen/_t25sp"
-        android:id="@+id/f_bottom_sheet_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_line" />
+	<TextView
+			android:id="@+id/f_bottom_sheet_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/caesar_dressing"
+			android:textSize="@dimen/_t25sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_line" />
 
-    <TextView
-        android:textSize="@dimen/_t18sp"
-        android:id="@+id/f_bottom_sheet_description"
-        android:fontFamily="@font/anton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_title" />
+	<TextView
+			android:id="@+id/f_bottom_sheet_description"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/anton"
+			android:textSize="@dimen/_t18sp"
+			android:visibility="gone"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/f_bottom_sheet_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
