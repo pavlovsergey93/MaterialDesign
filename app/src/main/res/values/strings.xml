@@ -45,4 +45,6 @@
 	<string name="menu_nav_view_5">Анимация</string>
 	<string name="boom">Взрыв</string>
 	<string name="constraint">Constraint</string>
+	<string name="trajectory_ovement">По траектории</string>
+	<string name="sort">Сортировка</string>
 </resources>

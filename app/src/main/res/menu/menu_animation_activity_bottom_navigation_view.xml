@@ -9,13 +9,13 @@
 			android:icon="@drawable/ic_earth"
 			android:title="@string/constraint" />
 	<item
-			android:id="@+id/constraint2"
+			android:id="@+id/trajectory_ovement"
 			android:icon="@drawable/ic_earth"
-			android:title="@string/constraint" />
+			android:title="@string/trajectory_ovement" />
 	<item
-			android:id="@+id/constraint3"
+			android:id="@+id/sort"
 			android:icon="@drawable/ic_earth"
-			android:title="@string/constraint" />
+			android:title="@string/sort" />
 	<item
 			android:id="@+id/constraint4"
 			android:icon="@drawable/ic_earth"

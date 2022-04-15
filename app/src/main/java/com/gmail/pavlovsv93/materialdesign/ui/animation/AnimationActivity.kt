@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.ActivityAnimationBinding
 import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.BoomFragment
+import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.RandomSortFragment
+import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.TrajectoryMovementFragment
 
 class AnimationActivity : AppCompatActivity() {
 
@@ -22,10 +24,18 @@ class AnimationActivity : AppCompatActivity() {
 					showFragment(BoomFragment.newInstance())
 					true
 				}
+				R.id.trajectory_ovement -> {
+					showFragment(TrajectoryMovementFragment.newInstance())
+					true
+				}
+				R.id.sort -> {
+					showFragment(RandomSortFragment.newInstance())
+					true
+				}
 				else -> false
 			}
 		}
-		binding.aaBottomNavigationView.selectedItemId = R.id.menu_constraint_layout
+		binding.aaBottomNavigationView.selectedItemId = R.id.boom
 	}
 
 	private fun showFragment(f: Fragment) {
