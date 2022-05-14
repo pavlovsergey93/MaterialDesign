@@ -5,10 +5,40 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-	<androidx.appcompat.widget.AppCompatImageView
+	<FrameLayout
+			android:id="@+id/header"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/_s52dp"
+			android:background="@color/blue_grey_100"
+			android:stateListAnimator="@animator/header_animation" />
+
+	<androidx.core.widget.NestedScrollView
+			android:id="@+id/scroll_view"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			app:srcCompat="@drawable/bg_mars" />
+			android:layout_marginTop="@dimen/_s52dp">
+
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:srcCompat="@drawable/bg_mars" />
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:srcCompat="@drawable/bg_earth" />
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:srcCompat="@drawable/bg_system" />
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
 
 	<FrameLayout
 			android:id="@+id/frame_layout_background"

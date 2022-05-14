@@ -40,6 +40,9 @@ class AnimationRotateFabFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		clickToFabShort()
+		binding.scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+			binding.header.isSelected = binding.scrollView.canScrollVertically(-1)
+		}
 		binding.linearLayoutContainerOne.setOnClickListener {
 			Toast.makeText(requireContext(), binding.optionOneTextView.text, Toast.LENGTH_SHORT)
 				.show()
