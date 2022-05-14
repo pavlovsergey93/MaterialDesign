@@ -3,7 +3,7 @@ package com.gmail.pavlovsv93.materialdesign.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.gmail.pavlovsv93.materialdesign.repository.RemoteRepositoryRetrofit
+import com.gmail.pavlovsv93.materialdesign.data.repository.RemoteRepositoryRetrofit
 import com.gmail.pavlovsv93.materialdesign.model.DataResponseNasaDTO
 import com.gmail.pavlovsv93.materialdesign.utils.CORRUPTED_DATA
 import com.gmail.pavlovsv93.materialdesign.utils.NASA_API_KEY

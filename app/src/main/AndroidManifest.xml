@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/myThemeGrey">
         <activity
-            android:name=".view.main.PictureOfTheDayActivity"
+            android:name=".ui.PictureOfTheDayActivity"
             android:exported="true"
             android:label="@string/title_activity_view_pager">
             <intent-filter>
@@ -24,12 +24,15 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity android:name=".view.navigation.viewpager.ViewPagerActivity"
+        <activity android:name="com.gmail.pavlovsv93.materialdesign.ui.view.pager.ViewPagerActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".view.navigation.bottomnavigationview.BottomNavigationActivity"
+		<activity android:name=".ui.animation.AnimationActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name="com.gmail.pavlovsv93.materialdesign.ui.navigation.BottomNavigationActivity"
             android:exported="true"/>
-        <activity android:name=".view.layouts.LayoutActivity" />
+        <activity android:name=".ui.layout.LayoutActivity" />
     </application>
 
 </manifest>

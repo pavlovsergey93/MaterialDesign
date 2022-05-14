@@ -17,4 +17,8 @@
         android:id="@+id/menu_nav_view_4"
         android:icon="@drawable/ic_wikipedia"
         android:title="@string/menu_nav_view_4" />
+	<item
+        android:id="@+id/menu_nav_view_5"
+        android:icon="@drawable/ic_wikipedia"
+        android:title="@string/menu_nav_view_5" />
 </menu>

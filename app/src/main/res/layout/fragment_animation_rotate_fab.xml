@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	<FrameLayout
+			android:id="@+id/header"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/_s52dp"
+			android:background="@color/blue_grey_100"
+			android:stateListAnimator="@animator/header_animation" />
+
+	<androidx.core.widget.NestedScrollView
+			android:id="@+id/scroll_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="@dimen/_s52dp">
+
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:srcCompat="@drawable/bg_mars" />
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:srcCompat="@drawable/bg_earth" />
+
+			<androidx.appcompat.widget.AppCompatImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					app:srcCompat="@drawable/bg_system" />
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+
+	<FrameLayout
+			android:id="@+id/frame_layout_background"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:alpha="0"
+			android:animateLayoutChanges="true"
+			android:background="@color/blue_grey_100"
+			android:clickable="false"
+			tools:alpha="0.5" />
+
+	<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<LinearLayout
+				android:id="@+id/linear_layout_container_one"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom|end"
+				android:alpha="0"
+				android:clickable="false"
+				android:orientation="horizontal"
+				android:paddingEnd="@dimen/_s30dp"
+				android:paddingBottom="@dimen/_s30dp"
+				tools:alpha="0.5">
+
+			<TextView
+					android:id="@+id/option_one_text_view"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_gravity="center"
+					android:layout_marginEnd="@dimen/_s4dp"
+					android:text="@string/option_1"
+					android:textSize="@dimen/_t20sp"
+					android:textStyle="bold" />
+
+			<ImageView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_gravity="center"
+					android:src="@drawable/ic_baseline_favorite_border_24" />
+		</LinearLayout>
+
+		<LinearLayout
+				android:id="@+id/linear_layout_container_two"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom|end"
+				android:alpha="0"
+				android:clickable="false"
+				android:orientation="horizontal"
+				android:paddingEnd="@dimen/_s30dp"
+				android:paddingBottom="@dimen/_s30dp"
+				tools:alpha="0.5">
+
+			<TextView
+					android:id="@+id/option_two_text_view"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginEnd="@dimen/_s4dp"
+					android:text="@string/option_2"
+					android:textSize="@dimen/_t20sp"
+					android:textStyle="bold" />
+
+			<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:src="@drawable/ic_outline_search_24" />
+		</LinearLayout>
+	</FrameLayout>
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+			android:id="@+id/fab"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom|end"
+			android:layout_marginEnd="@dimen/_s16dp"
+			android:layout_marginBottom="@dimen/_s16dp"
+			android:elevation="@dimen/_s4dp"
+			android:src="@drawable/ic_baseline_add_24" />
+
+</FrameLayout>

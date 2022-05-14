@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+			android:id="@+id/boom"
+			android:icon="@drawable/ic_earth"
+			android:title="@string/boom" />
+	<item
+			android:id="@+id/oblect_animation"
+			android:icon="@drawable/ic_earth"
+			android:title="@string/oblect" />
+	<item
+			android:id="@+id/trajectory_ovement"
+			android:icon="@drawable/ic_earth"
+			android:title="@string/trajectory_ovement" />
+	<item
+			android:id="@+id/sort"
+			android:icon="@drawable/ic_earth"
+			android:title="@string/sort" />
+	<item
+			android:id="@+id/constraint"
+			android:icon="@drawable/ic_earth"
+			android:title="@string/constraint" />
+</menu>

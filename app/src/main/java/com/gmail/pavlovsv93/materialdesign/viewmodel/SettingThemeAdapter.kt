@@ -7,8 +7,8 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.gmail.pavlovsv93.materialdesign.R
-import com.gmail.pavlovsv93.materialdesign.view.menu.other.bottom.app.bar.SettingThemeFragment
-import com.gmail.pavlovsv93.materialdesign.model.theme.Theme
+import com.gmail.pavlovsv93.materialdesign.ui.setting.theme.SettingThemeFragment
+import com.gmail.pavlovsv93.materialdesign.domain.entity.Theme
 import com.gmail.pavlovsv93.materialdesign.utils.DEFAULT_THEME
 import com.gmail.pavlovsv93.materialdesign.utils.EquilateralImageView
 import com.google.android.material.textview.MaterialTextView

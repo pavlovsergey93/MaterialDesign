@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_s4dp"
-        app:layout_behavior=".view.layouts.ToNestedScrollBehavior">
+        app:layout_behavior=".utils.behavior.ToNestedScrollBehavior">
 
         <TextView
             android:id="@+id/f_coordinator_scroll_text_view"
