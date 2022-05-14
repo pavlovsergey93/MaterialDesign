@@ -19,6 +19,9 @@ import com.gmail.pavlovsv93.materialdesign.utils.*
 import com.gmail.pavlovsv93.materialdesign.viewmodel.AppState
 import com.gmail.pavlovsv93.materialdesign.viewmodel.PictureViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.chip.Chip
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ChipsFragment : Fragment() {
 
@@ -77,12 +80,14 @@ class ChipsFragment : Fragment() {
 
     private fun initViewModel() {
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer<AppState> { state ->
-            renderData(state)
-        })
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				renderData(state)
+			}
+		})
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun renderData(state: AppState) {
+	private fun renderData(state: AppState) {
         when (state) {
             is AppState.OnError -> {
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN

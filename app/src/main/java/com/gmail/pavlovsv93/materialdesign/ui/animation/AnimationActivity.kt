@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gmail.pavlovsv93.materialdesign.R
 import com.gmail.pavlovsv93.materialdesign.databinding.ActivityAnimationBinding
+import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.AnimationRotateFabFragment
 import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.BoomFragment
 import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.RandomSortFragment
 import com.gmail.pavlovsv93.materialdesign.ui.animation.fragments.TrajectoryMovementFragment
@@ -30,6 +31,13 @@ class AnimationActivity : AppCompatActivity() {
 				}
 				R.id.sort -> {
 					showFragment(RandomSortFragment.newInstance())
+					true
+				}
+				R.id.oblect_animation -> {
+					showFragment(AnimationRotateFabFragment.newInstance())
+					true
+				}
+				R.id.constraint->{
 					true
 				}
 				else -> false

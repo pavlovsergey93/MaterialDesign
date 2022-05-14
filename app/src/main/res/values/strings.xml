@@ -47,4 +47,7 @@
 	<string name="constraint">Constraint</string>
 	<string name="trajectory_ovement">По траектории</string>
 	<string name="sort">Сортировка</string>
+	<string name="oblect">Объектная анимация</string>
+	<string name="option_1">Опция 1</string>
+	<string name="option_2">Опция 2</string>
 </resources>
